@@ -51,9 +51,12 @@ function Add-SchoolDataSyncV2Role {
         }
         
         $key = "$($userSourcedId)-$($orgSourcedId)-$($role)"
+        if($grade) {
+            $key = "$($userSourcedId)-$($orgSourcedId)-$($role)-$($grade)"
+        }
 
         if ($script:Roles.ContainsKey($key)) {
-            Write-Error "Role combination for user $userSourcedId, org $orgSourcedId and role $role already exists"
+            Write-Error "Role combination for user '$userSourcedId', org '$orgSourcedId', role '$role' and grade '$grade' already exists"
             return
         }
 
