@@ -5,28 +5,28 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule           = 'SchoolDataSyncV2CSV.psm1'
+    RootModule        = 'SchoolDataSyncV2CSV.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.0.2'
+    ModuleVersion     = '1.0.3'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
     # ID used to uniquely identify this module
-    GUID                 = 'bdc607e0-cd29-4c21-8584-34e543161f48'
+    GUID              = 'bdc607e0-cd29-4c21-8584-34e543161f48'
 
     # Author of this module
-    Author               = 'Marius Solbakken Mellum'
+    Author            = 'Marius Solbakken Mellum'
 
     # Company or vendor of this module
-    CompanyName          = 'Fortytwo'
+    CompanyName       = 'Fortytwo'
 
     # Description of the functionality provided by this module
-    Description = 'A module for generating School Data Sync V2 CSV files for Microsoft 365 Education'
+    Description       = 'A module for generating School Data Sync V2 CSV files for Microsoft 365 Education'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion    = '7.1'
+    PowerShellVersion = '7.1'
 
     # Name of the PowerShell host required by this module
     # PowerShellHostName = ''
@@ -62,16 +62,16 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport    = '*'
+    FunctionsToExport = '*'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-    CmdletsToExport      = '*'
+    CmdletsToExport   = '*'
 
     # Variables to export from this module
-    VariablesToExport    = '*'
+    VariablesToExport = '*'
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport      = '*'
+    AliasesToExport   = '*'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
@@ -83,9 +83,13 @@
     # FileList = @()
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-    PrivateData          = @{
-        PSData = @{}
+    PrivateData       = @{
+        PSData = @{
+            Tags       = @('SchoolDataSync', 'Microsoft365', 'Education', 'CSV')
+            ProjectUri = "https://github.com/amestofortytwo/powershell-module-schooldatasync/"
+        }
     }
 
+    
 }
 
