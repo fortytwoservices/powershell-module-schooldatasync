@@ -34,8 +34,7 @@ function Add-SchoolDataSyncV2Enrollment {
         $key = "$($classSourcedId)-$($userSourcedId)-$($role)"
 
         if($script:Enrollments.ContainsKey($key)){
-            Write-Error "Enrollment combination for class $classSourcedId, user $userSourcedId and role $role already exists"
-            return
+            Write-Warning "Enrollment combination for class $classSourcedId, user $userSourcedId and role $role already exists"
         }
 
         $script:Enrollments[$key] = @{
