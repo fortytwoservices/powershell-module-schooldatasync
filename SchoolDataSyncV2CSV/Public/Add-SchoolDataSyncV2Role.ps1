@@ -23,7 +23,6 @@ function Add-SchoolDataSyncV2Role {
         [String] $sessionSourcedId = $null,
 
         [Parameter(Mandatory = $false)]
-        [ValidateSet("it", "pr", "pk", "tk", "kg", "01", "1", "02", "2", "03", "3", "04", "4", "05", "5", "06", "6", "07", "7", "08", "8", "09", "9", "10", "11", "12", "13", "14", "ps", "ug", "other", "ps1", "ps2", "ps3", "ps4", "undergraduate", "graduate", "postgraduate alumni", "adultEducation")]        
         [String] $grade = $null,
 
         [Parameter(Mandatory = $false)]
@@ -45,7 +44,11 @@ function Add-SchoolDataSyncV2Role {
         if (!$script:Orgs.ContainsKey($orgSourcedId)) {
             Write-Error "Org with sourcedId $orgSourcedId not found"
             return
-        } 
+        }
+
+        if($grade -and $grade -notin "it", "pr", "pk", "tk", "kg", "01", "1", "02", "2", "03", "3", "04", "4", "05", "5", "06", "6", "07", "7", "08", "8", "09", "9", "10", "11", "12", "13", "14", "ps", "ug", "other", "ps1", "ps2", "ps3", "ps4", "undergraduate", "graduate", "postgraduate alumni", "adultEducation") {
+            Write-Warning "Grade $grade is not in the default set of grades. Please ensure that the grade is correct. The default values are: it, pr, pk, tk, kg, 01, 1, 02, 2, 03, 3, 04, 4, 05, 5, 06, 6, 07, 7, 08, 8, 09, 9, 10, 11, 12, 13, 14, ps, ug, other, ps1, ps2, ps3, ps4, undergraduate, graduate, postgraduate alumni, adultEducation"
+        }
         
         $key = "$($userSourcedId)-$($orgSourcedId)-$($role)"
 
