@@ -5,7 +5,7 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule           = 'SchoolDataSyncV2.psm1'
+    RootModule           = 'SchoolDataSyncV2CSV.psm1'
 
     # Version number of this module.
     ModuleVersion        = '0.0.1'
