@@ -8,7 +8,7 @@
     RootModule        = 'SchoolDataSyncV2CSV.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.3'
+    ModuleVersion     = '1.0.4'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -85,7 +85,7 @@
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData       = @{
         PSData = @{
-            Tags       = @('SchoolDataSync', 'Microsoft365', 'Education', 'CSV')
+            Tags       = @('PSEdition_Core', 'Microsoft365', 'Education', 'CSV')
             ProjectUri = "https://github.com/amestofortytwo/powershell-module-schooldatasync/"
         }
     }
