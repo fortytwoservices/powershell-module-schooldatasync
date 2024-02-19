@@ -8,7 +8,7 @@
     RootModule           = 'SchoolDataSyncV2CSV.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.0.1'
+    ModuleVersion        = '1.0.2'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -23,7 +23,7 @@
     CompanyName          = 'Fortytwo'
 
     # Description of the functionality provided by this module
-    Description = 'A module for getting users assigned to an application in EntraID'
+    Description = 'A module for generating School Data Sync V2 CSV files for Microsoft 365 Education'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion    = '7.1'
