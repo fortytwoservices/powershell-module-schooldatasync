@@ -1,0 +1,60 @@
+<#
+.SYNOPSIS
+Adds a user to the School Data Sync V2 users collection
+
+.EXAMPLE
+Add-SchoolDataSyncV2Course -sourcedId "1234" -username "test@fortytwo.io"
+#>
+function Add-SchoolDataSyncV2Course {
+    [CmdletBinding()]
+
+    Param(
+        [Parameter(Mandatory = $true)]
+        [String] $sourcedId,
+
+        [Parameter(Mandatory = $true)]
+        [String] $orgSourcedId,
+
+        [Parameter(Mandatory = $true)]
+        [String] $title,
+
+        [Parameter(Mandatory = $false)]
+        [String] $code = $null,
+
+        [Parameter(Mandatory = $false)]
+        [String] $schoolYearSourcedId = $null,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $subject = $null,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $grade = $null
+    )
+
+    Process {
+        if ($script:Courses.ContainsKey($sourcedId)) {
+            Write-Error "Course with sourcedId $sourcedId already exists"
+            return
+        }
+
+        if (!$script:Orgs.ContainsKey($orgSourcedId)) {
+            Write-Error "Org with sourcedId $orgSourcedId not found"
+            return
+        }
+
+        if ($schoolYearSourcedId -and !$script:AcademicSessions.ContainsKey($schoolYearSourcedId)) {
+            Write-Error "AcademicSession with sourcedId $schoolYearSourcedId not found"
+            return
+        }
+          
+        $script:Courses[$sourcedId] = @{
+            sourcedId           = $sourcedId
+            orgSourcedId        = $orgSourcedId
+            title               = $title
+            code                = $code
+            schoolYearSourcedId = $schoolYearSourcedId
+            subject             = $subject
+            grade               = $grade 
+        }
+    }
+}

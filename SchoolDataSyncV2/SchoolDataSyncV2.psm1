@@ -3,7 +3,12 @@ New-Variable -Scope Script -Name Users -Value @{}
 New-Variable -Scope Script -Name Usernames -Value @{}
 New-Variable -Scope Script -Name Roles -Value @{}
 New-Variable -Scope Script -Name Classes -Value @{}
+New-Variable -Scope Script -Name Enrollments -Value @{}
+New-Variable -Scope Script -Name AcademicSessions -Value @{}
 New-Variable -Scope Script -Name Courses -Value @{}
+New-Variable -Scope Script -Name Relationships -Value @{}
+New-Variable -Scope Script -Name Demographics -Value @{}
+New-Variable -Scope Script -Name UserFlags -Value @{}
 
 # Get public and private function definition files.
 $Private = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue )
