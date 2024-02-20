@@ -46,8 +46,15 @@ function Add-SchoolDataSyncV2Course {
             Write-Error "AcademicSession with sourcedId $schoolYearSourcedId not found"
             return
         }
-          
-        $script:Courses[$sourcedId] = @{
+        
+        $key = "$($sourcedId)-$($orgSourcedId)"
+
+        if($script:CourseKeys.ContainsKey($key)) {
+            Write-Error "Course with sourcedId $sourcedId and orgSourcedId $orgSourcedId already exists"
+            return
+        }
+
+        $script:Courses[$key] = @{
             sourcedId           = $sourcedId
             orgSourcedId        = $orgSourcedId
             title               = $title
