@@ -38,8 +38,15 @@ function Add-SchoolDataSyncV2Class {
             Write-Error "Org with sourcedId $orgSourcedId not found"
             return
         }
+
+        $key = "$($sourcedId)-$($orgSourcedId)"
+
+        if($script:Classes.ContainsKey($key)) {
+            Write-Error "Class with sourcedId $sourcedId and orgSourcedId $orgSourcedId already exists"
+            return
+        }
           
-        $script:Classes[$sourcedId] = @{
+        $script:Classes[$key] = @{
             sourcedId         = $sourcedId
             orgSourcedId      = $orgSourcedId
             title             = $title
