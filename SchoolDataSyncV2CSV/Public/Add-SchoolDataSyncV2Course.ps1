@@ -49,7 +49,7 @@ function Add-SchoolDataSyncV2Course {
         
         $key = "$($sourcedId)-$($orgSourcedId)"
 
-        if($script:CourseKeys.ContainsKey($key)) {
+        if($script:Courses.ContainsKey($key)) {
             Write-Error "Course with sourcedId $sourcedId and orgSourcedId $orgSourcedId already exists"
             return
         }
