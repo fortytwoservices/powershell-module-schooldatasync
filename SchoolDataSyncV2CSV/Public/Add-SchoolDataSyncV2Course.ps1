@@ -57,11 +57,11 @@ function Add-SchoolDataSyncV2Course {
         $script:Courses[$key] = @{
             sourcedId           = $sourcedId
             orgSourcedId        = $orgSourcedId
-            title               = $title
-            code                = $code
-            schoolYearSourcedId = $schoolYearSourcedId
-            subject             = $subject
-            grade               = $grade 
+            title               = $title ?? ""
+            code                = $code ?? ""
+            schoolYearSourcedId = $schoolYearSourcedId ?? ""
+            subject             = $subject ?? ""
+            grade               = $grade ?? ""
         }
     }
 }

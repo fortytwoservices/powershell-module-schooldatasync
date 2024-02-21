@@ -26,7 +26,7 @@ function Add-SchoolDataSyncV2Role {
         [String] $grade = $null,
 
         [Parameter(Mandatory = $false)]
-        [Boolean] $isPrimary,
+        [Boolean] $isPrimary = $false,
 
         [Parameter(Mandatory = $false)]
         [DateTime] $roleStartDate,
@@ -64,11 +64,11 @@ function Add-SchoolDataSyncV2Role {
             userSourcedId    = $userSourcedId
             orgSourcedId     = $orgSourcedId
             role             = $role
-            sessionSourcedId = $sessionSourcedId
-            grade            = $grade
+            sessionSourcedId = $sessionSourcedId ?? ""
+            grade            = $grade ?? ""
             isPrimary        = $isPrimary
-            roleStartDate    = $roleStartDate ? $roleStartDate.ToString("yyyy-MM-dd") : $null
-            roleEndDate      = $roleEndDate ? $roleEndDate.ToString("yyyy-MM-dd") : $null
+            roleStartDate    = $roleStartDate ? $roleStartDate.ToString("yyyy-MM-dd") : ""
+            roleEndDate      = $roleEndDate ? $roleEndDate.ToString("yyyy-MM-dd") : ""
         }
     }
 }

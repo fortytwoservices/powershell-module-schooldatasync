@@ -50,11 +50,11 @@ function Add-SchoolDataSyncV2Demographic {
 
         $script:Demographics[$userSourcedId] = @{
             userSourcedId = $userSourcedId
-            sex = $sex
+            sex = $sex ?? ""
             birthDate = $birthDate ? $birthDate.ToString("yyyy-MM-dd") : ""
-            birthCity = $birthCity
-            birthState = $birthState
-            birthCountry = $birthCountry
+            birthCity = $birthCity ?? ""
+            birthState = $birthState ?? ""
+            birthCountry = $birthCountry ?? ""
             ethnicityCodes = $ethnicityCodes -join ","
             raceCodes = $raceCodes -join ","
         }

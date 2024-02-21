@@ -22,8 +22,7 @@ function Get-SchoolDataSyncV2CSV {
         $obj = @{
             "orgs.csv" = $script:Orgs.GetEnumerator() | ForEach-Object {$_.Value} | ConvertTo-Csv -NoTypeInformation -Delimiter "," -UseQuotes AsNeeded
             "users.csv" = $script:Users.GetEnumerator() | ForEach-Object {$_.Value} | ConvertTo-Csv -NoTypeInformation -Delimiter "," -UseQuotes AsNeeded
-            "roles.csv" = $script:Roles.GetEnumerator() | ForEach-Object {$_.Value} | ConvertTo-Csv -NoTypeInformation -Delimiter "," -UseQuotes AsNeeded
-            
+            "roles.csv" = $script:Roles.GetEnumerator() | ForEach-Object {$_.Value} | ConvertTo-Csv -NoTypeInformation -Delimiter "," -UseQuotes AsNeeded 
         }
 
         if($script:Classes.Count -eq 0) {

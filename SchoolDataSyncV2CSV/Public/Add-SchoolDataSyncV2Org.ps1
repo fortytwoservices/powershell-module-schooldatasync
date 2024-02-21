@@ -38,7 +38,7 @@ function Add-SchoolDataSyncV2Org {
             sourcedId       = $sourcedId
             name            = $name
             type            = $type
-            parentSourcedId = $parentSourcedId
+            parentSourcedId = $parentSourcedId ?? ""
         }
     }
 }

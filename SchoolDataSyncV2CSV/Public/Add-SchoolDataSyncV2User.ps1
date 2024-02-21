@@ -53,12 +53,12 @@ function Add-SchoolDataSyncV2User {
         $script:Users[$sourcedId] = @{
             sourcedId              = $sourcedId
             username               = $username
-            givenName              = $givenName
-            familyName             = $familyName
-            activeDirectoryMatchId = $activeDirectoryMatchId
-            email                  = $email
-            phone                  = $phone
-            sms                    = $sms
+            givenName              = $givenName ?? ""
+            familyName             = $familyName ?? ""
+            activeDirectoryMatchId = $activeDirectoryMatchId ?? ""
+            email                  = $email ?? ""
+            phone                  = $phone ?? ""
+            sms                    = $sms ?? ""
         }
         $script:Usernames[$username] = $script:Users[$sourcedId]
     }

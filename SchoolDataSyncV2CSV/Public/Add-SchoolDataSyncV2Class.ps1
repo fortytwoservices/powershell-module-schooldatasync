@@ -41,18 +41,18 @@ function Add-SchoolDataSyncV2Class {
 
         $key = $sourcedId
 
-        if($script:Classes.ContainsKey($key)) {
+        if ($script:Classes.ContainsKey($key)) {
             Write-Error "Class with sourcedId $sourcedId already exists"
             return
         }
           
         $script:Classes[$key] = @{
             sourcedId         = $sourcedId
-            orgSourcedId      = $orgSourcedId
-            title             = $title
+            orgSourcedId      = $orgSourcedId ?? ""
+            title             = $title ?? ""
             sessionSourcedIds = $sessionSourcedIds -join ","
-            courseSourcedId   = $courseSourcedId
-            code              = $code   
+            courseSourcedId   = $courseSourcedId ?? ""
+            code              = $code ?? ""
         }
     }
 }
