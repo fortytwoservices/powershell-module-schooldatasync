@@ -1,3 +1,11 @@
+<#
+.SYNOPSIS
+Returns the School Data Sync V2 CSV files as a hashtable of CSVs
+
+.EXAMPLE
+Get-SchoolDataSyncV2CSV
+
+#>
 function Get-SchoolDataSyncV2CSV {
     [CmdletBinding()]
     param ()

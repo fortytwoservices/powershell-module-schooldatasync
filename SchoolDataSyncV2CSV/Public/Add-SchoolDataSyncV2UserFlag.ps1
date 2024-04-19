@@ -3,7 +3,7 @@
 Adds a user flag to the School Data Sync V2 userflags collection
 
 .EXAMPLE
-Add-SchoolDataSyncV2UserFlag -sourcedId "1234" -flag "giftOrTalented"
+Add-SchoolDataSyncV2UserFlag -userSourcedId "1234" -flag "giftOrTalented"
 #>
 function Add-SchoolDataSyncV2UserFlag {
     [CmdletBinding()]

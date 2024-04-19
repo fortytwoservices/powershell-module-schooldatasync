@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a role for a user to the School Data Sync V2 collection
 
 .EXAMPLE
-Add-SchoolDataSyncV2User -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Role -userSourcedId "1234" -orgSourcedId "org1" -role "student"
 #>
 function Add-SchoolDataSyncV2Role {
     [CmdletBinding()]

@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a relationship to the School Data Sync V2 collection
 
 .EXAMPLE
-Add-SchoolDataSyncV2Relationship -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Relationship -userSourcedId "1234" -relationshipUserSourcedId "parent1" -relationshipRole "parent"
 #>
 function Add-SchoolDataSyncV2Relationship {
     [CmdletBinding()]
