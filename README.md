@@ -1,6 +1,6 @@
 # Documentation for module SchoolDataSyncV2CSV
 
-A module for generating School Data Sync V2 CSV files for Microsoft 365 Education
+A module for generating School Data Sync V2 CSV files for Microsoft 365 Education. Simply use the different Add-* cmdlets and add the content, before triggering Save-SchoolDataSyncV2CSV.
 
 | Metadata | Information |
 | --- | --- |
@@ -12,7 +12,7 @@ A module for generating School Data Sync V2 CSV files for Microsoft 365 Educatio
 ## Add-SchoolDataSyncV2AcademicSession
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds an academic session to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -29,7 +29,7 @@ Add-SchoolDataSyncV2AcademicSession [-sourcedId] <String> [-title] <String> [-ty
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Class -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2AcademicSession -sourcedId "session01" -title "Session 01" -type "Term" -schoolYear "2025" -startDate "2025-08-01" -endDate "2025-12-31"
 ```
 
 ### PARAMETERS
@@ -169,7 +169,12 @@ Add-SchoolDataSyncV2Class [-sourcedId] <String> [-orgSourcedId] <String> [-title
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Class -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Class -sourcedId "1234" -orgSourcedId "org1" -title "Class 1"
+```
+
+#### EXAMPLE 2
+```
+Add-SchoolDataSyncV2Class -sourcedId "4321" -orgSourcedId "org1" -title "Class 2" -sessionSourcedIds "session1","session2" -courseSourcedId "course1" -code "class2code"
 ```
 
 ### PARAMETERS
@@ -292,7 +297,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Course
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a course to the School Data Sync V2 course collection
 
 ### SYNTAX
 
@@ -309,7 +314,7 @@ Add-SchoolDataSyncV2Course [-sourcedId] <String> [-orgSourcedId] <String> [-titl
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Course -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Course -sourcedId "course1" -orgSourcedId "org1" -title "Course 1"
 ```
 
 ### PARAMETERS
@@ -447,7 +452,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Demographic
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a user's demographic to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -464,7 +469,7 @@ Add-SchoolDataSyncV2Demographic [-userSourcedId] <String> [[-sex] <String>] [[-b
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Relationship -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Demographic -userSourcedId "1234"
 ```
 
 ### PARAMETERS
@@ -617,7 +622,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Enrollment
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a user to a class to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -633,7 +638,7 @@ Add-SchoolDataSyncV2Enrollment [-classSourcedId] <String> [-userSourcedId] <Stri
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Enrollment -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Enrollment -classSourcedId "class1" -userSourcedId "1234" -role "student"
 ```
 
 ### PARAMETERS
@@ -711,7 +716,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Org
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds an organization to the School Data Sync V2 organization collection
 
 ### SYNTAX
 
@@ -727,7 +732,7 @@ Add-SchoolDataSyncV2Org [-sourcedId] <String> [-name] <String> [-type] <String> 
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2User -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Org -sourcedId "org1" -name "Org 1" -type "municipality"
 ```
 
 ### PARAMETERS
@@ -820,7 +825,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Relationship
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a relationship to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -836,7 +841,7 @@ Add-SchoolDataSyncV2Relationship [-userSourcedId] <String> [-relationshipUserSou
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2Relationship -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Relationship -userSourcedId "1234" -relationshipUserSourcedId "parent1" -relationshipRole "parent"
 ```
 
 ### PARAMETERS
@@ -914,7 +919,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2Role
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a role for a user to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -931,7 +936,7 @@ Add-SchoolDataSyncV2Role [-userSourcedId] <String> [-orgSourcedId] <String> [-ro
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2User -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Role -userSourcedId "1234" -orgSourcedId "org1" -role "student"
 ```
 
 ### PARAMETERS
@@ -1084,7 +1089,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Add-SchoolDataSyncV2User
 
 ### SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a user to the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -1270,7 +1275,7 @@ Add-SchoolDataSyncV2UserFlag [-userSourcedId] <String> [[-flag] <String>] [-Prog
 
 #### EXAMPLE 1
 ```
-Add-SchoolDataSyncV2UserFlag -sourcedId "1234" -flag "giftOrTalented"
+Add-SchoolDataSyncV2UserFlag -userSourcedId "1234" -flag "giftOrTalented"
 ```
 
 ### PARAMETERS
@@ -1333,7 +1338,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## Get-SchoolDataSyncV2CSV
 
 ### SYNOPSIS
-{{ Fill in the Synopsis }}
+Returns the School Data Sync V2 CSV files as a hashtable of CSVs
 
 ### SYNTAX
 
@@ -1346,12 +1351,10 @@ Get-SchoolDataSyncV2CSV [-ProgressAction <ActionPreference>] [<CommonParameters>
 
 ### EXAMPLES
 
-#### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+#### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-SchoolDataSyncV2CSV
+```
 
 ### PARAMETERS
 
@@ -1375,17 +1378,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### INPUTS
 
-#### None
 ### OUTPUTS
 
-#### System.Object
 ### NOTES
 
 ### RELATED LINKS
 ## Save-SchoolDataSyncV2CSV
 
 ### SYNOPSIS
-{{ Fill in the Synopsis }}
+Saves the School Data Sync V2 CSV files to a folder
 
 ### SYNTAX
 
@@ -1398,12 +1399,10 @@ Save-SchoolDataSyncV2CSV [[-Path] <String>] [-ProgressAction <ActionPreference>]
 
 ### EXAMPLES
 
-#### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+#### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Save-SchoolDataSyncV2CSV
+```
 
 ### PARAMETERS
 
@@ -1416,8 +1415,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
-Default value: None
+Position: 1
+Default value: .
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -1442,17 +1441,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### INPUTS
 
-#### None
 ### OUTPUTS
 
-#### System.Object
 ### NOTES
 
 ### RELATED LINKS
 ## Show-SchoolDataSyncV2Report
 
 ### SYNOPSIS
-{{ Fill in the Synopsis }}
+Prints a report of the School Data Sync V2 collection
 
 ### SYNTAX
 
@@ -1465,12 +1462,10 @@ Show-SchoolDataSyncV2Report [-ProgressAction <ActionPreference>] [<CommonParamet
 
 ### EXAMPLES
 
-#### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+#### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Show-SchoolDataSyncV2Report
+```
 
 ### PARAMETERS
 
@@ -1494,10 +1489,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### INPUTS
 
-#### None
 ### OUTPUTS
 
-#### System.Object
 ### NOTES
 
 ### RELATED LINKS
