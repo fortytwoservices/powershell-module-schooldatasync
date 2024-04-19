@@ -1,3 +1,11 @@
+<#
+.SYNOPSIS
+Saves the School Data Sync V2 CSV files to a folder
+
+.EXAMPLE
+Save-SchoolDataSyncV2CSV
+
+#>
 function Save-SchoolDataSyncV2CSV {
     [CmdletBinding()]
     param (

@@ -1,3 +1,10 @@
+<#
+.SYNOPSIS
+Prints a report of the School Data Sync V2 collection
+
+.EXAMPLE
+Show-SchoolDataSyncV2Report
+#>
 function Show-SchoolDataSyncV2Report {
     [CmdletBinding()]
     param ()

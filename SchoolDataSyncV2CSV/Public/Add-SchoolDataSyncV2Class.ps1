@@ -3,7 +3,10 @@
 Adds a user to the School Data Sync V2 users collection
 
 .EXAMPLE
-Add-SchoolDataSyncV2Class -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2Class -sourcedId "1234" -orgSourcedId "org1" -title "Class 1"
+
+.EXAMPLE
+Add-SchoolDataSyncV2Class -sourcedId "4321" -orgSourcedId "org1" -title "Class 2" -sessionSourcedIds "session1","session2" -courseSourcedId "course1" -code "class2code"
 #>
 function Add-SchoolDataSyncV2Class {
     [CmdletBinding()]

@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds an academic session to the School Data Sync V2 collection
 
 .EXAMPLE
-Add-SchoolDataSyncV2Class -sourcedId "1234" -username "test@fortytwo.io"
+Add-SchoolDataSyncV2AcademicSession -sourcedId "session01" -title "Session 01" -type "Term" -schoolYear "2025" -startDate "2025-08-01" -endDate "2025-12-31"
 #>
 function Add-SchoolDataSyncV2AcademicSession {
     [CmdletBinding()]

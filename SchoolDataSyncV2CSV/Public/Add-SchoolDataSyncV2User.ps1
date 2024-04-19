@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Adds a user to the School Data Sync V2 users collection
+Adds a user to the School Data Sync V2 collection
 
 .EXAMPLE
 Add-SchoolDataSyncV2User -sourcedId "1234" -username "test@fortytwo.io"

@@ -23,7 +23,7 @@
     CompanyName       = 'Fortytwo'
 
     # Description of the functionality provided by this module
-    Description       = 'A module for generating School Data Sync V2 CSV files for Microsoft 365 Education'
+    Description       = 'A module for generating School Data Sync V2 CSV files for Microsoft 365 Education. Simply use the different Add-* cmdlets and add the content, before triggering Save-SchoolDataSyncV2CSV.'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion = '7.1'
