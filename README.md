@@ -4,7 +4,7 @@ A module for generating School Data Sync V2 CSV files for Microsoft 365 Educatio
 
 | Metadata | Information |
 | --- | --- |
-| Version | 1.0.12 |
+| Version | 1.1.0 |
 | Author | Marius Solbakken Mellum |
 | Company name | Fortytwo |
 | PowerShell version | 7.1 |
