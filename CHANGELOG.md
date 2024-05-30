@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/fortytwoservices/powershell-module-schooldatasync/compare/v1.1.0...v1.1.1) (2024-05-30)
+
+
+### Bug Fixes
+
+* Correct url for project ([e5a2edd](https://github.com/fortytwoservices/powershell-module-schooldatasync/commit/e5a2edd1bd7ed14d41e238dfbb2ccdf05cfbd31f))
+
 ## [1.1.0](https://github.com/fortytwoservices/powershell-module-schooldatasync/compare/v1.0.12...v1.1.0) (2024-04-19)
 
 
