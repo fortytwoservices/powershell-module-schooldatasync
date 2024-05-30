@@ -86,7 +86,7 @@
     PrivateData       = @{
         PSData = @{
             Tags       = @('PSEdition_Core', 'Microsoft365', 'Education', 'CSV')
-            ProjectUri = "https://github.com/amestofortytwo/powershell-module-schooldatasync/"
+            ProjectUri = "https://github.com/fortytwoservices/powershell-module-schooldatasync/"
         }
     }
 
