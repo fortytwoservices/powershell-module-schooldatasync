@@ -18,15 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           fetch-depth: 2
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Update readme.md and psd1 version
+      - name: Update documentation.md and psd1 version
         shell: pwsh
         run: |
-          $Path = ".\README.md"
-      
+          $Path = ".\Documentation.md"
+
           # Load platyPS module for generating markdown documentation
           Install-Module platyPS -Scope CurrentUser -Confirm:$false -Force
           Import-Module platyPS
@@ -38,8 +38,20 @@ jobs:
               Write-Error "Wrong number of psd1 files found ($count)"
               exit 1
           }
+          
+          # Import the module
+          $RequiredModules = [ScriptBlock]::Create((Get-Content -Raw $psd1.FullName)).Invoke().RequiredModules
+          if($RequiredModules) {
+            $RequiredModules | ForEach-Object {
+              Write-Host "Installing required module $_"
+              Install-Module -Name $_ -Scope CurrentUser -Confirm:$false -Force
+            }
+          }
+          $ModulePath = $psd1.FullName | Split-Path -Parent
+          $Module = Import-Module $ModulePath -Verbose -Force -PassThru
       
-          # Update the psd1 file with the release-please version
+          # Update the psd1 file with the release-please version and public cmdlets
+          $releasePleaseVersion = $null
           if((Test-Path ".release-please-manifest.json")) {
               $releasePleaseVersion = (Get-Content ".release-please-manifest.json" | ConvertFrom-Json -AsHashTable)."."
               if($releasePleaseVersion -notlike "*.*.*") {
@@ -50,13 +62,10 @@ jobs:
               # Replace the ModuleVersion line in the psd1 file
               (Get-Content $psd1.FullName | 
               ForEach-Object {if($_ -like "*ModuleVersion*=*"){"    ModuleVersion = '$releasePleaseVersion'"} else {$_}} | 
+              ForEach-Object {if($_ -like "*CmdletsToExport*'`*'*" -or $_ -like "*CmdletsToExport*@(*)*"){"    CmdletsToExport = @('{0}')" -f ($module.ExportedFunctions.Keys -join "','")} else {$_}} | 
               Out-String).Trim() | 
               Set-Content $psd1.FullName
           }
-          
-          # Import the module
-          $ModulePath = $psd1.FullName | Split-Path -Parent
-          $Module = Import-Module $ModulePath -Verbose -Force -PassThru
           
           # Generate README.md
           {
@@ -66,7 +75,7 @@ jobs:
               ""
               "| Metadata | Information |"
               "| --- | --- |"
-              "| Version | $($Module.Version) |"
+              "| Version | {0} |" -f ($releasePleaseVersion ?? $Module.Version)
               if($Module.RequiredModules) {"| Required modules | $($Module.RequiredModules) |"}
               if($Module.Author) {"| Author | $($Module.Author) |"}
               if($Module.CompanyName) {"| Company name | $($Module.CompanyName) |"}
@@ -85,13 +94,13 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git add --all
-          git commit -m "chore: Update generated content"
+          git commit --signoff -m "chore: Update generated content"
           git push origin ${{ github.event.pull_request.head.ref }}
   release-please:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - uses: google-github-actions/release-please-action@e4dc86ba9405554aeba3c6bb2d169500e7d3b4ee # v4.1.1
+      - uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38 # v4.4.0
         with:
           token: ${{ secrets.MARVIN_PAT }}
-          release-type: simple
+          config-file: .github/release-please-config.json
