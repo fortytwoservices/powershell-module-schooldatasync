@@ -65,7 +65,7 @@
     FunctionsToExport = '*'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-    CmdletsToExport   = '*'
+    CmdletsToExport = @('Add-SchoolDataSyncV2AcademicSession','Add-SchoolDataSyncV2Class','Add-SchoolDataSyncV2Course','Add-SchoolDataSyncV2Demographic','Add-SchoolDataSyncV2Enrollment','Add-SchoolDataSyncV2Org','Add-SchoolDataSyncV2Relationship','Add-SchoolDataSyncV2Role','Add-SchoolDataSyncV2User','Add-SchoolDataSyncV2UserFlag','Get-SchoolDataSyncV2CSV','Save-SchoolDataSyncV2CSV','Show-SchoolDataSyncV2Report')
 
     # Variables to export from this module
     VariablesToExport = '*'
