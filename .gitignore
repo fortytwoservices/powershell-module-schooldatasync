@@ -1,3 +1,9 @@
 .vscode/*
 *.csv
 Example 1.ps1
+*.md.tmp
+*.zip
+.DS_Store
+.idea
+scim_artifacts/
+testing.ps1
