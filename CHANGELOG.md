@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/fortytwoservices/powershell-module-schooldatasync/compare/v1.1.1...v1.2.0) (2026-04-21)
+
+
+### Features
+
+* Invoke a release in order to verify updated release please configuration ([cc19d65](https://github.com/fortytwoservices/powershell-module-schooldatasync/commit/cc19d65bf70d136a6a2c7705f126b55d39df250c))
+* Release ([5569cc5](https://github.com/fortytwoservices/powershell-module-schooldatasync/commit/5569cc58f801762c1520b5a4616b3bfa5fad62b2))
+
 ## [1.1.1](https://github.com/fortytwoservices/powershell-module-schooldatasync/compare/v1.1.0...v1.1.1) (2024-05-30)
 
 
